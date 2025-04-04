@@ -1,0 +1,9 @@
+# Ignore database and virtual environment
+*.db
+__pycache__/
+*.pyc
+venv/
+.env
+
+# VSCode settings
+.vscode/
