@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Edit Country</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label>Country Name</label>
+    <input type="text" name="name" value="{{ country.name }}" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Continent</label>
+    <input type="text" name="continent" value="{{ country.continent }}" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Status</label>
+    <select name="travel_status" class="form-select">
+      {% for status in ["Visited", "Planned", "Wishlist"] %}
+        <option value="{{ status }}" {% if country.travel_status == status %}selected{% endif %}>{{ status }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+  <a href="{{ url_for('travel.manage_countries') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

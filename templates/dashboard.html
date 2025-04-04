@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Travel Dashboard</h2>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card text-center mb-3">
+      <div class="card-body">
+        <h3>{{ total_countries }}</h3>
+        <p>Total Countries Visited</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center mb-3">
+      <div class="card-body">
+        <h3>{{ most_visited_continent if most_visited_continent else "N/A" }}</h3>
+        <p>Most Visited Continent</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center mb-3">
+      <div class="card-body">
+        <h3>
+          {% if earliest_entry %}
+            {{ earliest_entry.travel_date.strftime("%Y-%m-%d") }}
+          {% else %}
+            N/A
+          {% endif %}
+        </h3>
+        <p>Earliest Travel Date</p>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="{{ url_for('travel.export_csv') }}" class="btn btn-secondary">Export Visited Locations CSV</a>
+{% endblock %}

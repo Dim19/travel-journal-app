@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1 class="text-center">Welcome to Your Travel Journal</h1>
+  <div id="map" style="height: 600px;"></div>
+  <script>
+    var countryData = {{ country_data | tojson | safe }};
+  </script>
+  <p class="text-center mt-4">Add a country to get started!</p>
+  <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}

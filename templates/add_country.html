@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Add New Country</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="name" class="form-label">Country Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="continent" class="form-label">Continent</label>
+    <input type="text" class="form-control" id="continent" name="continent" required>
+  </div>
+  <div class="mb-3">
+    <label for="travel_status" class="form-label">Travel Status</label>
+    <select class="form-select" id="travel_status" name="travel_status">
+      <option value="Wishlist">Wishlist</option>
+      <option value="Planned">Planned</option>
+      <option value="Visited">Visited</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Country</button>
+</form>
+{% endblock %}
